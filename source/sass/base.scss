@@ -1,0 +1,49 @@
+*, *::before, *::after {
+  @include reset();
+  box-sizing: border-box;
+}
+
+.body {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  background-image: url('../img/back.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: $trebuchet;
+
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    background-image: url("../img/back@2x.png");
+  }
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+img, picture, svg, video {
+  display: block;
+  height: auto;
+}
+
+input, textarea, button, select {
+  font: inherit;
+}
+

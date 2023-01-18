@@ -1,0 +1,283 @@
+.pack {
+    color: $black;
+    max-width: 320px;
+    width: 100%;
+    margin: 40px;
+
+    &__main {
+        position: relative;
+        overflow: hidden;
+        border-right: 4px solid $blue;
+        border-bottom: 4px solid $blue;
+        height: 100%;
+        cursor: pointer;
+        transition: border 0.2s;
+        border-radius: 0 12px 12px 12px;
+
+        &:hover {
+            border-right: 4px solid $blue-2;
+            border-bottom: 4px solid $blue-2;
+
+            .pack__inner {
+                border-left: 4px solid $blue-2;
+            }
+    
+            .pack__header {
+                border-left: 4px solid $blue-2;
+                border-top: 4px solid $blue-2;
+            }
+    
+            .pack__weight {
+                background-color: $blue-2;
+            }
+        }
+    }
+
+    &__inner {
+        position: relative;
+        overflow: hidden;
+        border-left: 4px solid $blue;
+        background-color: $gray;
+        min-height: calc(100% - 48px);
+        transition: border 0.2s;
+    }
+
+    &__header {
+        background-color: $gray;
+        text-align: left;
+        position: relative;
+        z-index: 1;
+        transform: skewX(-45deg);
+        left: 24px;
+        border-left: 4px solid $blue;
+        border-top: 4px solid $blue;
+        padding: 20px 40px 5px;
+        transition: border 0.2s;
+
+        h3 {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: $darkGray;
+            transform: skewX(45deg);
+        }
+    }
+
+    &__info {
+        padding: 0 50px;
+        background-color: $gray;
+        margin-bottom: 75%;
+
+        h3 {
+            font-size: 48px;
+            line-height: 56px;
+        }
+
+        b {
+            display: block;
+            font-size: 24px;
+            line-height: 28px;
+            margin-bottom: 15px;
+        }
+
+        h3, b, span {
+            overflow-wrap: break-word;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        span {
+            font-size: 14px;
+            line-height: 16px;
+            color: $darkGray;
+            display: block;
+
+            b {
+                font-size: 14px;
+                line-height: 16px;
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    &__weight,
+    &__image {
+        position: absolute;
+    }
+
+    &__image {
+        bottom: -100px;
+        left: -35px;
+        z-index: 1;
+    }
+
+    &__weight {
+        bottom: 16px;
+        right: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        background-color: $blue;
+        min-width: 80px;
+        min-height: 80px;
+        border-radius: 100%;
+        z-index: 2;
+        transition: background-color 0.2s;
+
+        span {
+            overflow-wrap: break-word;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        span:first-of-type {
+            font-size: 40px;
+        }
+
+        span:last-of-type {
+            font-size: 20px;
+        }
+    }
+
+    &__footer {
+        padding: 14px 0;
+    }
+
+    &__text {
+        color: $white;
+        font-size: 13px;
+        line-height: 15px;
+
+        a {
+            color: $blue;
+            border-bottom: 1px dashed $blue;
+            transition: color 0.2s;
+
+            &:hover {
+                color: $blue-2;
+            }
+        }
+    }
+
+    &__text--selected,
+    &__text--disabled {
+        display: none;
+    }
+
+    &--selected {
+        .pack__main {
+            border-right: 4px solid $magenta;
+            border-bottom: 4px solid $magenta;
+
+            &:hover {
+                border-right: 4px solid $magenta-2;
+                border-bottom: 4px solid $magenta-2;
+
+                .pack__inner {
+                    border-left: 4px solid $magenta-2;
+                }
+        
+                .pack__header {
+                    border-left: 4px solid $magenta-2;
+                    border-top: 4px solid $magenta-2;
+                }
+        
+                .pack__weight {
+                    background-color: $magenta-2;
+                }
+            }
+        }
+    
+        .pack__inner {
+            border-left: 4px solid $magenta;
+        }
+    
+        .pack__header {
+            border-left: 4px solid $magenta;
+            border-top: 4px solid $magenta;
+        }
+    
+        .pack__weight {
+            background-color: $magenta;
+        }
+
+        .pack__text--default,
+        .pack__text--disabled {
+            display: none;
+        }
+
+        .pack__text--selected {
+            display: block;
+        }
+    }
+
+    &--disabled {
+        pointer-events: none;
+
+        .pack__text--selected,
+        .pack__text--default {
+            display: none;
+        }
+
+        .pack__text--disabled {
+            display: block;
+            color: $yellow;
+        }
+
+        .pack__main {
+            border-right: 4px solid $disabledGray;
+            border-bottom: 4px solid $disabledGray;
+        }
+    
+        .pack__inner {
+            border-left: 4px solid $disabledGray;
+        }
+    
+        .pack__header {
+            border-left: 4px solid $disabledGray;
+            border-top: 4px solid $disabledGray;
+        }
+    
+        .pack__weight {
+            background-color: $disabledGray;
+        }
+
+        .pack__info,
+        .pack__header {
+            h3, b, span {
+                color: $disabledGray;
+            }
+        }
+
+        .pack__image {
+            opacity: 0.6;
+        }
+    }
+
+    &--no-hover {
+        .pack__main {
+            &:hover {
+                border-right: 4px solid $magenta;
+                border-bottom: 4px solid $magenta;
+
+                .pack__inner {
+                    border-left: 4px solid $magenta;
+                }
+        
+                .pack__header {
+                    border-left: 4px solid $magenta;
+                    border-top: 4px solid $magenta;
+                }
+        
+                .pack__weight {
+                    background-color: $magenta;
+                }
+            }
+        }
+    }
+}
